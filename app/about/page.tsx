@@ -1,9 +1,6 @@
-import React from 'react'
+import React from "react";
 
 export default function page() {
-  return (
-    <div>
-      This is about page
-    </div>
-  )
+  throw new Error("not implemented");
+  return <div>This is about page</div>;
 }

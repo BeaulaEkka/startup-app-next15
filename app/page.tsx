@@ -6,13 +6,16 @@ export default async function page() {
   const albums = await response.json();
 
   return (
-    <div>
+    <div className="flex flex-col w-[80%] mx-auto mt-20">
+      <h1 className="font-bold text-2xl mb-2 underline-offset-2">Movies</h1>
       {albums &&
         albums.map((album: { id: string; title: string }) => (
           <div key={album.id}>
-            <ol>
-              <li>{album.title}</li>
-            </ol>
+            <ul className="capitalize flex  mt-2 ">
+              <li className="capitalize">
+                {album.id}. {album.title}
+              </li>
+            </ul>
           </div>
         ))}
     </div>

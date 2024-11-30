@@ -1,37 +1,17 @@
-// import React from 'react'
+import React from "react";
 
-// function page() {
-//   return (
-//     <div>
-//       this is books
-//     </div>
-//   )
-// }
+async function Page() {
+  const response = await fetch("http://localhost:3000/api/books", {
+    cache: "no-store",
+  }); // Use http://, not https:// for localhost.
+  const books = await response.json();
 
-// export default page
-
-import { GetServerSideProps } from "next";
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/ut`); // Replace with your API URL.
-  const books = await res.json();
-
-  return {
-    props: {
-      books,
-    },
-  };
-};
-
-export default function BooksPage({ books }: { books: any[] }) {
   return (
     <div>
-      <h1>Books</h1>
-      <ul>
-        {books.map((book, index) => (
-          <li key={index}>{book.title}</li> // Customize based on your book object structure.
-        ))}
-      </ul>
+      <h1>This is books</h1>
+      <pre>{JSON.stringify(books, null, 2)}</pre>
     </div>
   );
 }
+
+export default Page;

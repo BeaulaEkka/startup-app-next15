@@ -6,6 +6,7 @@ export async function PUT(
 ) {
   const id = +context.params.id;
   const book = await request.json();
+  
   const index = books.findIndex((b) => b.id === id);
   books[index] = books;
   return Response.json(books);

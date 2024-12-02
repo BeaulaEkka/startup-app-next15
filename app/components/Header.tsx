@@ -1,4 +1,5 @@
 import { auth, signIn, signOut } from "@/auth";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -29,7 +30,7 @@ async function Header() {
             </li>
           </ul>
         </nav>
-        <nav>
+        <nav className="flex items-center gap-3">
           {session && session?.user ? (
             <>
               <Link href="/startup/create">Create</Link>
@@ -42,8 +43,18 @@ async function Header() {
                 <button type="submit">Log Out</button>
               </form>
 
-              <Link href={`/users/${session?.id}`}>
+              <Link href={`/users/${session?.id}`} className="flex items-center gap-2">
                 <span>{session?.user?.name}</span>
+               
+                {session.user?.image && (
+                  <Image
+                    src={session.user.image}
+                    alt={`${session.user.name}'s profile picture`}
+                    width={50}
+                    height={50}
+                    className="rounded-full"
+                  />
+                )}
               </Link>
             </>
           ) : (

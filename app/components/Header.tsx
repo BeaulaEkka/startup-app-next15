@@ -9,7 +9,7 @@ async function Header() {
     <header className="w-full h-12 bg-gray-200 flex ">
       <div className="flex w-[80%] mx-auto justify-between items-center gap">
         <nav>
-          <button type="button" className="workSans font-bold text-2xl flex-nowrap">
+          <button type="button" className=" font-work-sans font-bold text-2xl flex-nowrap">
             NL Startups
           </button>
         </nav>
@@ -43,9 +43,12 @@ async function Header() {
                 <button type="submit">Log Out</button>
               </form>
 
-              <Link href={`/users/${session?.id}`} className="flex items-center gap-2">
+              <Link
+                href={`/users/${session?.id}`}
+                className="flex items-center gap-2"
+              >
                 <span>{session?.user?.name}</span>
-               
+
                 {session.user?.image && (
                   <Image
                     src={session.user.image}

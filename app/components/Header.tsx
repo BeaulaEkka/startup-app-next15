@@ -9,7 +9,7 @@ async function Header() {
     <header className="w-full h-12 bg-gray-200 flex ">
       <div className="flex w-[80%] mx-auto justify-between items-center gap">
         <nav>
-          <button type="button" className="font-bold text-2xl flex-nowrap">
+          <button type="button" className="workSans font-bold text-2xl flex-nowrap">
             NL Startups
           </button>
         </nav>

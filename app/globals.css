@@ -8,6 +8,7 @@
   .pink_container{
     @apply bg-cyan-500 text-white p-5 rounded-lg shadow-md pattern
   }
+  .search-btn{@apply w-8 h-8 border  rounded-full bg-black font-semibold absolute top-[50%] right-2 translate-y-[-50%] text-white hover:bg-black/50 flex items-center justify-center }
   .pattern{
     background-image: linear-gradient(
       to right,
@@ -24,6 +25,7 @@
     background-repeat: repeat-x;
 
   }
+  
 }
 body {
   font-family: Arial, Helvetica, sans-serif;

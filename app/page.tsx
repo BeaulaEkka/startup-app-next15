@@ -1,7 +1,12 @@
 import React from "react";
 import SearchForm from "./components/SearchForm";
 
-export default async function page() {
+export default async function page({
+  searchParams,
+}: {
+  searchParams: Promise<{ query?: string }>;
+}) {
+  const query = (await searchParams).query;
   return (
     <section className="pink_container">
       <h1 className="heading">
@@ -10,7 +15,7 @@ export default async function page() {
       <p className="text-center text-xl capitalize mt-8 mb-8">
         Submit Ideas,Vote on pitches and get Noticed in Virtual Competitons
       </p>
-      <SearchForm />
+      <SearchForm query={query} />
     </section>
   );
 }

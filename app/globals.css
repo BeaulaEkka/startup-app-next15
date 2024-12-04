@@ -25,6 +25,7 @@
     background-repeat: repeat-x;
 
   }
+  .section_container{@apply border border-red-500 mt-10 w-[80%] mx-auto}
   
 }
 body {

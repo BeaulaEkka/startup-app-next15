@@ -20,9 +20,8 @@
 
 // export default SearchFormReset;
 
-
-
 "use client";
+import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import Link from "next/link";
 
@@ -33,15 +32,16 @@ const SearchFormReset = () => {
   };
 
   return (
-    <button
+    <Button
       type="reset"
+      variant="outline"
       onClick={reset}
       className="search-btn"
     >
       <Link href="/" className="block w-full h-full text-center">
-        <X className="size-5"/>
+        <X className="size-5" />
       </Link>
-    </button>
+    </Button>
   );
 };
 

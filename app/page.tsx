@@ -8,7 +8,7 @@ export default async function page({
 }) {
   const query = (await searchParams).query;
   return (
-    <div>
+    <>
       <section className="pink_container">
         <h1 className="heading">
           pitch your startups, connect with entrepreneurs
@@ -18,9 +18,11 @@ export default async function page({
         </p>
         <SearchForm query={query} />
       </section>
-      <section className="section_container">
-        <p className="capitalize font-bold text-xl ">{query? `search results for "${query}"` : "All startups"}</p>
+      <section>
+        <p className="capitalize font-bold text-xl ">
+          {query ? "{query}" : "All Startups"}
+        </p>
       </section>
-    </div>
+    </>
   );
 }

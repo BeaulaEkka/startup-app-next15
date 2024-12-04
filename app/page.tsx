@@ -19,7 +19,7 @@ export default async function page({
         <SearchForm query={query} />
       </section>
       <section className="section_container">
-        <p className="capitalize ">{query? `search results for "${query}"` : "All startups"}</p>
+        <p className="capitalize font-bold text-xl ">{query? `search results for "${query}"` : "All startups"}</p>
       </section>
     </div>
   );

@@ -28,7 +28,8 @@
   .section_container{@apply border border-red-500 mt-10 w-[80%] mx-auto}
 
   .card_grid{@apply grid md:grid-cols-3 sm:grid-cols-2 gap-3}
-  .startup-card{@apply border-2 border-black rounded-lg  shadow-black shadow-[3px_3px_0px_0px_rgba(0,_0,_0,_0.8)] grid lg:grid-cols-4}
+
+  .startup-card{@apply border-2 border-black rounded-lg  shadow-black shadow-[3px_3px_0px_0px_rgba(0,_0,_0,_0.8)] list-none p-5 hover:border-cyan-500 hover:shadow-cyan-500}
 }
 body {
   font-family: Arial, Helvetica, sans-serif;

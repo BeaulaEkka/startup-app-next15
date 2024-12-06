@@ -12,10 +12,11 @@ export default async function page({
   const posts = [
     {
       _id: 1,
-      _createdAt: "Yesterday",
+      _createdAt: new Date(),
       views: 55,
-      author: { _id: 1 },
-      description: "This is description",
+      author: { _id: 1, name: "Beaula" },
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium inventore expedita iusto distinctio dolorem autem labore rem quis quia consequatur odit tenetur commodi quam possimus porro, optio, adipisci dolores nisi"!,
       image:
         "https://images.pexels.com/photos/7944040/pexels-photo-7944040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       category: "Robots",
@@ -23,20 +24,20 @@ export default async function page({
     },
     {
       _id: 2,
-      _createdAt: "Yesterday",
+      _createdAt: new Date(),
       views: 55,
-      author: { _id: 1 },
+      author: { _id: 1, name: "Beaula" },
       description: "This is description",
       image:
-        "https://images.pexels.com/photos/7944040/pexels-photo-7944040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       category: "Robots",
       title: "We Robots",
     },
     {
       _id: 3,
-      _createdAt: "Yesterday",
+      _createdAt: new Date(),
       views: 55,
-      author: { _id: 1 },
+      author: { _id: 1, name: "Beaula" },
       description: "This is description",
       image:
         "https://images.pexels.com/photos/7944040/pexels-photo-7944040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -59,7 +60,7 @@ export default async function page({
         <p className="capitalize font-bold text-xl mt-12 mx-auto w-[80%]">
           {query ? `Search Results for ${query}` : "All Startups"}
         </p>
-        <div className="grid grid-cols-5 grid-rows-5 gap-4 w-[80%] mx-auto">
+        <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-4 grid-rows-5 gap-4 w-[80%] mx-auto">
           {posts?.length > 0 ? (
             posts.map((post: StartupCardType, index: number) => (
               <StartupCard key={post?._id} post={post} />

@@ -27,7 +27,7 @@ export default async function page({
       _createdAt: new Date(),
       views: 55,
       author: { _id: 1, name: "Beaula" },
-      description: "This is description",
+      description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum voluptas, illum temporibus et dicta labore est, cumque distinctio culpa aut natus quibusdam maxime, facere voluptate unde molestias fugit quia sapiente?",
       image:
         "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       category: "Robots",
@@ -42,7 +42,7 @@ export default async function page({
       image:
         "https://images.pexels.com/photos/7944040/pexels-photo-7944040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       category: "Robots",
-      title: "We Robots",
+      title: "Universe",
     },
   ];
   return (

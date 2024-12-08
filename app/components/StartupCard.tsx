@@ -5,6 +5,7 @@ import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import { auth } from "@/auth";
 import { Button } from "@/components/ui/button";
+import { Author, Startup } from "@/sanity.types";
 
 // type AuthorType = {
 //   _id: string;
@@ -20,13 +21,16 @@ import { Button } from "@/components/ui/button";
 //   category: string;
 //   title: string;
 // };
+export type StartupCardType = Omit<Startup, "author"> & {
+  author?: Author | null;
+};
 function StartupCard({ post }: { post: StartupCardType }) {
   const session = auth();
   const {
     _id,
     _createdAt,
     views,
-    author: { _id: authorId, name },
+    author,
     description,
     category,
     title,
@@ -43,18 +47,18 @@ function StartupCard({ post }: { post: StartupCardType }) {
       </div>
       <div className="flex justify-between">
         <div className="flex flex-col gap-1">
-          <Link href={`/user/${authorId}`}>{name}</Link>
+          <Link href={`/user/${author?._id}`}>{author?.name}</Link>
           <Link href={`/startup/${_id}`}>
             <h3 className="text-xl font-semibold line-clamp-1 ">{title}</h3>
           </Link>
         </div>
         <div>
-          <Link href={`/user/${authorId}`}>
+          <Link href={`/user/${author?._id}`}>
             <Image
               src="https://placehold.co/48x48"
               width={50}
               height={50}
-              alt={name}
+              alt={author?.name || "Unknown Author"}
               className="rounded-full"
             />
           </Link>
@@ -64,16 +68,16 @@ function StartupCard({ post }: { post: StartupCardType }) {
       <div className="line-clamp-1 h-32 overflow-hidden">{description}</div>
       <div className="w-full my-2">
         <Image
-          src={image}
+          src={image || "https://placehold.co/250x250"}
           width={250}
           height={250}
-          alt={title}
+          alt={title || "Startup Image"}
           className="w-full h-40 object-cover rounded-lg  shadow-md"
         />
       </div>
 
       <div className="flex justify-between gap-3 items-center">
-        <Link href={`/query=${category.toLowerCase()}`}>
+        <Link href={`/query=${category?.toLowerCase()}`}>
           <p>{category}</p>
         </Link>
 

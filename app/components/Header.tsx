@@ -9,7 +9,10 @@ async function Header() {
     <header className="w-full h-12 bg-gray-200 flex ">
       <div className="flex w-[80%] mx-auto justify-between items-center gap">
         <nav>
-          <button type="button" className=" font-work-sans font-bold text-2xl flex-nowrap">
+          <button
+            type="button"
+            className=" font-work-sans font-bold text-2xl flex-nowrap"
+          >
             NL Startups
           </button>
         </nav>
@@ -52,7 +55,11 @@ async function Header() {
                 {session.user?.image && (
                   <Image
                     src={session.user.image}
-                    alt={`${session.user.name}'s profile picture`}
+                    alt={
+                      session.user?.name
+                        ? `${session.user.name}'s profile picture`
+                        : "Profile picture"
+                    }
                     width={50}
                     height={50}
                     className="rounded-full"

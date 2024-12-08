@@ -1,6 +1,8 @@
 import React from "react";
 import SearchForm from "./components/SearchForm";
 import StartupCard from "./components/StartupCard";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
+import { client } from "@/sanity/lib/client";
 
 export default async function page({
   searchParams,
@@ -9,42 +11,9 @@ export default async function page({
 }) {
   const query = (await searchParams).query;
 
-  const posts = [
-    {
-      _id: 1,
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: "Beaula" },
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium inventore expedita iusto distinctio dolorem autem labore rem quis quia consequatur odit tenetur commodi quam possimus porro, optio, adipisci dolores nisi"!,
-      image:
-        "https://images.pexels.com/photos/7944040/pexels-photo-7944040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      category: "Robots",
-      title: "We Robots",
-    },
-    {
-      _id: 2,
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: "Beaula" },
-      description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum voluptas, illum temporibus et dicta labore est, cumque distinctio culpa aut natus quibusdam maxime, facere voluptate unde molestias fugit quia sapiente?",
-      image:
-        "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      category: "Robots",
-      title: "We Robots",
-    },
-    {
-      _id: 3,
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: "Beaula" },
-      description: "This is description",
-      image:
-        "https://images.pexels.com/photos/7944040/pexels-photo-7944040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      category: "Robots",
-      title: "Universe",
-    },
-  ];
+  const posts = await client.fetch(STARTUPS_QUERY);
+  // console.log(JSON.stringify(posts, null, 2));
+
   return (
     <div>
       <section className="pink_container">

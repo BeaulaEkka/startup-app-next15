@@ -6,20 +6,20 @@ import Link from "next/link";
 import { auth } from "@/auth";
 import { Button } from "@/components/ui/button";
 
-type AuthorType = {
-  _id: string;
-  name: string;
-};
-type StartupCardType = {
-  _id: string;
-  _createdAt: string | Date;
-  views: number;
-  author: AuthorType;
-  description: string;
-  image: string;
-  category: string;
-  title: string;
-};
+// type AuthorType = {
+//   _id: string;
+//   name: string;
+// };
+// type StartupCardType = {
+//   _id: string;
+//   _createdAt: string | Date;
+//   views: number;
+//   author: AuthorType;
+//   description: string;
+//   image: string;
+//   category: string;
+//   title: string;
+// };
 function StartupCard({ post }: { post: StartupCardType }) {
   const session = auth();
   const {

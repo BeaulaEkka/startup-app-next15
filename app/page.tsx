@@ -1,8 +1,9 @@
 import React from "react";
 import SearchForm from "./components/SearchForm";
-import StartupCard from "./components/StartupCard";
+import StartupCard, { StartupCardType } from "./components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
+import { STARTUPS_QUERYResult } from "@/sanity.types";
 
 export default async function page({
   searchParams,
@@ -11,7 +12,14 @@ export default async function page({
 }) {
   const query = (await searchParams).query;
 
-  const posts = await client.fetch(STARTUPS_QUERY);
+  const posts: StartupCardType[] = await client
+    .fetch(STARTUPS_QUERY)
+    .then((data) =>
+      data.map((post: STARTUPS_QUERYResult[number]) => ({
+        ...post,
+        // Transform or assign additional fields if necessary
+      }))
+    );
   // console.log(JSON.stringify(posts, null, 2));
 
   return (

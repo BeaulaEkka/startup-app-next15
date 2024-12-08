@@ -1,9 +1,9 @@
 import React from "react";
 import SearchForm from "./components/SearchForm";
 import StartupCard, { StartupCardType } from "./components/StartupCard";
+import { sanityFetch } from "@/sanity/lib/live";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
-import { client } from "@/sanity/lib/client";
-import { STARTUPS_QUERYResult } from "@/sanity.types";
+import { auth } from "@/auth";
 
 export default async function page({
   searchParams,
@@ -11,16 +11,12 @@ export default async function page({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
+  const params = { search: query || null };
+  const session = await auth();
 
-  const posts: StartupCardType[] = await client
-    .fetch(STARTUPS_QUERY)
-    .then((data) =>
-      data.map((post: STARTUPS_QUERYResult[number]) => ({
-        ...post,
-        // Transform or assign additional fields if necessary
-      }))
-    );
-  // console.log(JSON.stringify(posts, null, 2));
+  console.log(session?.id);
+
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
     <div>

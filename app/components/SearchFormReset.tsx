@@ -26,7 +26,6 @@ import { X } from "lucide-react";
 import Link from "next/link";
 
 const SearchFormReset = () => {
- 
   const reset = () => {
     const form = document.querySelector(".search-form") as HTMLFormElement;
     if (form) form.reset();
@@ -37,10 +36,10 @@ const SearchFormReset = () => {
       type="reset"
       variant="outline"
       onClick={reset}
-      className="search-btn"
+      className="flex justify-center items-center rounded-full w-8 h-8 bg-black"
     >
-      <Link href="/" className="block w-full h-full text-center">
-        <X className="size-5" />
+      <Link href="/">
+        <X className="size-10" />
       </Link>
     </Button>
   );

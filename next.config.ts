@@ -39,15 +39,24 @@ const nextConfig: NextConfig = {
       //   hostname: "placehold.co",
       //   pathname: "/**",
       // },
-      
+
       //or allow all
       {
         protocol: "https",
-        hostname: '*',
+        hostname: "*",
       },
     ],
     dangerouslyAllowSVG: true, // Enable SVG images
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;", // Secure SVG handling
+  },
+  //commented it out as its not working when on
+  // experimental: {
+  //   ppr: "incremental",
+  // },
+  devIndicators: {
+    appIsrStatus: true,
+    buildActivity: true,
+    buildActivityPosition: "bottom-right",
   },
 };
 

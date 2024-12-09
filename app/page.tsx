@@ -1,7 +1,7 @@
 import React from "react";
 import SearchForm from "./components/SearchForm";
 import StartupCard, { StartupCardType } from "./components/StartupCard";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { auth } from "@/auth";
 
@@ -35,7 +35,7 @@ export default async function page({
         </p>
         <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-4 grid-rows-5 gap-4 w-[80%] mx-auto">
           {posts?.length > 0 ? (
-            posts.map((post: StartupCardType, index: number) => (
+            posts.map((post: StartupCardType) => (
               <StartupCard key={post?._id} post={post} />
             ))
           ) : (
@@ -43,6 +43,7 @@ export default async function page({
           )}
         </div>
       </section>
+      <SanityLive />
     </div>
   );
 }

@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import React from "react";
 import { Suspense } from "react";
 import markdownit from "markdown-it";
+import { Skeleton } from "@/components/ui/skeleton";
+import View from "@/app/components/View";
 
 export const experimental_ppr = true;
 const md = markdownit();
@@ -36,7 +38,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
             className="w-full h-64 object-cover rounded-md mt-2 shadow-md "
           />
 
-          <div className="flex gap-3 mt-5 justify-between border border-red-500 items-center">
+          <div className="flex gap-3 mt-5 justify-between  items-center">
             <Link href={`user/${post.author?._id}`}>
               <div className="flex gap-4 items-center">
                 <Image
@@ -66,8 +68,14 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
               <p>No pitch details provided.</p>
             )}
             <hr className="mt-5" />
+            {/**TODO:EDITOR SELECTED STARTUP */}
           </div>
         </section>
+        <Suspense
+          fallback={<Skeleton className="w-[100px] h-[20px] rounded-full" />}
+        >
+          <View id={id} />
+        </Suspense>
       </Suspense>
     </div>
   );

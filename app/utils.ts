@@ -10,7 +10,7 @@ export function formatDate(date: string | Date): string {
   if (isNaN(parsedDate.getTime())) {
     throw new Error("Invalid date format");
   }
-  return parsedDate.toLocaleDateString("nl-NL", {
+  return parsedDate.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",

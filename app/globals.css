@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer utilities{
   .heading{
-    @apply uppercase bg-black/10 px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5 mx-auto rounded-md
+    @apply uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5 mx-auto rounded-md
   }
   .pink_container{
     @apply bg-cyan-500 text-white p-5 rounded-lg shadow-md pattern
@@ -32,6 +32,11 @@
   .card_grid{@apply grid md:grid-cols-3 sm:grid-cols-2 gap-3}
 
   .startup-card{@apply border-2 border-black rounded-lg  shadow-black shadow-[3px_3px_0px_0px_rgba(0,_0,_0,_0.8)] list-none p-5 hover:border-cyan-500 hover:shadow-cyan-500}
+
+
+  .above_tag{@apply bg-yellow-400 p-2 inline-block rounded}
+  .tag{
+    @apply py-1 relative inline-block px-4  bg-yellow-400 text-center text-base font-semibold  text-slate-900 before:absolute before:left-0 before:top-0 before:h-3 before:w-3 before:bg-black before:content-[''] before:[clip-path:polygon(0%_0%,100%_0%,0%_100%)] after:absolute after:bottom-0 after:right-0 after:h-3 after:w-3 after:bg-black after:content-[''] after:[clip-path:polygon(0%_100%,100%_100%,100%_0%)]}
 }
 body {
   font-family: Arial, Helvetica, sans-serif;

@@ -6,14 +6,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 import { Suspense } from "react";
+import markdownit from "markdown-it";
 
 export const experimental_ppr = true;
-
+const md = markdownit();
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
 
   const post = await client.fetch(STARTUP_BY_ID_QUERY, { id });
   if (!post) return notFound();
+
+  const parsedContent = md.render(post?.pitch || "");
   return (
     <div className="w-[80%] mx-auto mt-10">
       page {post.title}{" "}
@@ -55,8 +58,15 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
               <p className="category-tag">{post.category}</p>
             </Link>
           </div>
-          <h1 className="text-2xl font-semibold mt-2">Pitch Details</h1>
-          <p>{post.pitch}</p>
+          <div className="mt-5 prose max-w-4xl font-work-sans break-all">
+            <h1 className="text-2xl font-semibold mt-2">Pitch Details</h1>
+            {parsedContent ? (
+              <article dangerouslySetInnerHTML={{ __html: parsedContent }} />
+            ) : (
+              <p>No pitch details provided.</p>
+            )}
+            <hr className="mt-5" />
+          </div>
         </section>
       </Suspense>
     </div>

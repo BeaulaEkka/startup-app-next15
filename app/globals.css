@@ -8,9 +8,10 @@
   .pink_container{
     @apply bg-cyan-500 text-white p-5 rounded-lg shadow-md pattern
   }
-  .search-btn{@apply w-8 h-8 border  rounded-full bg-black font-semibold  text-white hover:bg-black/50 flex items-center justify-center
-    /* absolute top-[50%] right-2 translate-y-[-50%] */
+  .search-btn{@apply w-8 h-8 border  rounded-full bg-black font-semibold  text-white hover:bg-black/50 flex items-center justify-center 
+    
    }
+   .category-tag{@apply  bg-cyan-500/40  text-center flex items-center px-4 py-1 rounded-full font-semibold hover:bg-cyan-500/60}
   .pattern{
     background-image: linear-gradient(
       to right,

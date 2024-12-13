@@ -12,6 +12,7 @@ import View from "@/app/components/View";
 
 export const experimental_ppr = true;
 const md = markdownit();
+
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
 
@@ -19,10 +20,12 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   if (!post) return notFound();
 
   const parsedContent = md.render(post?.pitch || "");
+
+
   return (
     <div className="w-[80%] mx-auto mt-10">
       page {post.title}{" "}
-      <Suspense>
+      {/* <Suspense> */}
         {/* <DynamicComponent /> */}
         <section className="pink_container flex flex-col gap-2 items-center">
           <div className="above_tag">
@@ -76,7 +79,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         >
           <View id={id} />
         </Suspense>
-      </Suspense>
+      {/* </Suspense> */}
     </div>
   );
 };

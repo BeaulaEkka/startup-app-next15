@@ -52,7 +52,7 @@ const nextConfig: NextConfig = {
   // commented it out as its not working when on
   experimental: {
     // ppr: "incremental",
-    // after: true,
+    after: true,
   },
   devIndicators: {
     appIsrStatus: true,

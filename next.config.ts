@@ -49,10 +49,11 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true, // Enable SVG images
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;", // Secure SVG handling
   },
-  //commented it out as its not working when on
-  // experimental: {
-  //   ppr: "incremental",
-  // },
+  // commented it out as its not working when on
+  experimental: {
+    // ppr: "incremental",
+    // after: true,
+  },
   devIndicators: {
     appIsrStatus: true,
     buildActivity: true,

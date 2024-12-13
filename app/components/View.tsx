@@ -9,14 +9,15 @@ const View = async ({ id }: { id: string }) => {
   const { views: totalViews } = await client
     .withConfig({ useCdn: false })
     .fetch(STARTUP_VIEWS_QUERY, { id });
-  console.log(totalViews);
+  console.log("totalViews:", totalViews);
 
-  after(async () => {
-    await writeClient
-      .patch(id)
-      .set({ view: totalViews + 1 })
-      .commit();
-  });
+  after(
+    async () =>
+      await writeClient
+        .patch(id)
+        .set({ view: totalViews + 1 })
+        .commit()
+  );
 
   return (
     <div className="view-tag">
